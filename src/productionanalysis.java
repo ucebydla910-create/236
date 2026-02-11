@@ -6,14 +6,9 @@ public class CollectionsPerformanceTest {
         System.out.println("=== СРАВНЕНИЕ ПРОИЗВОДИТЕЛЬНОСТИ КОЛЛЕКЦИЙ ===\n");
 
         int elementCount = 100000;
-
-        // Тестирование List коллекций
+      
         testListCollections(elementCount);
-
-        // Тестирование Set коллекций
         testSetCollections(elementCount);
-
-        // Тестирование Map коллекций
         testMapCollections(elementCount);
     }
 
@@ -28,17 +23,13 @@ public class CollectionsPerformanceTest {
         List<Integer> arrayList = new ArrayList<>();
         List<Integer> linkedList = new LinkedList<>();
 
-        // Тест добавления
         long arrayListAddTime = testAdd(arrayList, elementCount);
         long linkedListAddTime = testAdd(linkedList, elementCount);
 
-        // Тест поиска
         long arrayListSearchTime = testSearch(arrayList, elementCount / 2);
         long linkedListSearchTime = testSearch(linkedList, elementCount / 2);
 
-        // Тест удаления каждого 10-го элемента
         long arrayListRemoveTime = testRemoveEveryTenth(arrayList);
-        // Пересоздаем linkedList для теста удаления
         linkedList = new LinkedList<>();
         testAdd(linkedList, elementCount);
         long linkedListRemoveTime = testRemoveEveryTenth(linkedList);
@@ -62,7 +53,6 @@ public class CollectionsPerformanceTest {
         Set<Integer> treeSet = new TreeSet<>();
         Set<Integer> linkedHashSet = new LinkedHashSet<>();
 
-        // Тест добавления
         long hashSetAddTime = testAdd(hashSet, elementCount);
         long treeSetAddTime = testAdd(treeSet, elementCount);
         long linkedHashSetAddTime = testAdd(linkedHashSet, elementCount);
@@ -193,3 +183,4 @@ public class CollectionsPerformanceTest {
         long endTime = System.nanoTime();
         return (endTime - startTime) / 1000000;
     }
+}
