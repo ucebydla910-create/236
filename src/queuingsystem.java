@@ -13,7 +13,6 @@ class Student implements Comparable<Student> {
         this.grade = grade;
     }
 
-    // Геттеры и сеттеры
     public int getId() { return id; }
     public String getFirstName() { return firstName; }
     public String getLastName() { return lastName; }
