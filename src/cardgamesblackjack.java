@@ -217,7 +217,7 @@ public class BlackjackGame {
     private void setupPlayers() {
         System.out.print("Введите количество игроков (1-4): ");
         int playerCount = scanner.nextInt();
-        scanner.nextLine(); // consume newline
+        scanner.nextLine();
         
         for (int i = 1; i <= playerCount; i++) {
             System.out.print("Введите имя игрока " + i + ": ");
@@ -280,7 +280,7 @@ public class BlackjackGame {
             
             System.out.print("1. Взять карту\n2. Остановиться\nВыберите действие: ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // consume newline
+            scanner.nextLine(); 
             
             if (choice == 1) {
                 Card card = deck.drawCard();
@@ -302,7 +302,6 @@ public class BlackjackGame {
         System.out.println("\n=== ХОД ДИЛЕРА ===");
         System.out.println(dealer.showHand(true));
         
-        // Дилер берет карты, пока у него меньше 17
         while (dealer.getScore() < 17 && !dealer.isBusted()) {
             Card card = deck.drawCard();
             dealer.addCard(card);
@@ -310,7 +309,7 @@ public class BlackjackGame {
             System.out.println(dealer.showHand(true));
             
             try {
-                Thread.sleep(1000); // Пауза для драматизма
+                Thread.sleep(1000); 
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
@@ -382,7 +381,6 @@ public class BlackjackGame {
                 ", Очков в лидерборде: " + leaderboard.get(player.getName()));
         }
         
-        // Определяем чемпиона
         String champion = Collections.max(leaderboard.entrySet(), 
             Map.Entry.comparingByValue()).getKey();
         System.out.println("\n🏆 ЧЕМПИОН: " + champion + " 🏆");
