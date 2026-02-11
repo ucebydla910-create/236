@@ -73,7 +73,6 @@
             return;
         }
 
-        // Удаляем из обоих мапов
         for (String phone : contact.getPhoneNumbers()) {
             contactsByPhone.remove(phone);
         }
@@ -172,7 +171,6 @@
     }
 
     private boolean isValidPhoneNumber(String phone) {
-        // Простая проверка - только цифры и длина от 6 до 15
         return phone.matches("\\d{6,15}");
     }
 
